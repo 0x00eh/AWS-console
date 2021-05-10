@@ -1,0 +1,56 @@
+Objectives: Working with Amazon Elastic Block Store (EBS)
+
+Requirements : Amazon web service account weather it is free or paid tier.
+
+EBS:  EBS is store drive for EC2 Instances(just as hard drive). EBS is provide block level volume storages for EC2 instances. EBS volumns are highly reliable and avialable drive that can be attached with any instance that is in the same availibility zone.
+All instances have its own volumns but after termination of the instance volums are also deleted.. but EBS provide a comman volums that can be used with multple instances and the can share the storage. with an aditional volumes.
+Volumes: root volumes and aditional volumes for instances. aditional volumes concern with EBS.
+Snapshots: It is an Image to create a backups or used to create a duplicate 
+
+Step to handle it:
+
+Step 1: Go to EC2 ---> click on Elastic block store 
+Contains with Volumes 
+            Snapshots
+            Lifecycle manager.
+
+Before I have Created a Windows Instance having 30 GB root storage that is also termed as EBS volume or we can create another EBS volume SSD (In Physically we can tareget it as Hard drive but aws provide a SSD service for EBS to increase High performance level. )
+Creation of New EBS volume:
+
+Click on Create volume then fill the text area as per your demand.
+
+IOPS: Input output per second (100/3000 by default) 
+
+
+Step 2: Create volume : now we have succesfully created volumes.
+
+
+Snapshots: It it the important to know that if you have deleted volumes by mistake then you wont be able to recover it so large organization always creating their backups and store all data and Volumes.
+
+To create snapshot let take a example :
+
+Step 1: Below Volumes there is an option named snapshot. click on it
+
+Step 2: create snapshot chose your volume 
+Note: Id you want to create snapshot for your instance then click on instance.
+
+Step 3: select you volume to snap.
+
+It will take some time to complete you can delete it as well from the action nevigation bar.
+
+We have successfully created a snapshot of EBS volume.
+If we want to manage all lifecycle of Elastic block store(EBS) then click on 
+Lifecycle manager.
+
+Create Lifecycle policy
+Data Lifecycle Manager enables you to automate the creation, retention, copy and deletion of EBS snapshots and EBS-backed AMIs. It also enables you to automate cross-account snapshot copy actions for snapshots that are shared with you, based on Amazon CloudWatch events.
+
+It will allow to create a periodic snapshot related to the policy
+
+Step 1: I want to create a lifecycle of EBS so fill the information 
+
+IAM role : This policy must be associated with an IAM role that has the appropriate permissions.
+
+Step 2: Set it by default\
+
+Step 3: Set you policy schedule for a backups.then leave all option to defaults then click on create 
