@@ -1,0 +1,62 @@
+Building the Virtual private Cloud on AWS
+
+VPC : Virtual private cloud service allows us to create a virtual network for instance and services it allows to isolated services that we define we can use both IPv4 and IPv6. this service lies in network and content delivery section 
+
+To create a VPC we need to go for some steps other wise AWS allows us to default VPC.
+
+Step 1: Go through the navigation bar and Find Netwrk and Content delivery then click on VPC.
+ 
+STep 2: Click on Create VPC 
+IPv4 CIDR block
+You must specify an IPv4 address range for your VPC. Specify the IPv4 address range as a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16. A CIDR block size must be between a /16 netmask and /28 netmask.
+
+You can provide IPv6 but in my case i have small network so I’m creating it with IPv4. 
+
+Step 3: Create VPC we have created it so far but we need to understand it properly.
+----------------------------
+Subnet:	A subnet is a range of IP addresses in your VPC. After creating a VPC, you can add one or more subnets in each Availability Zone. 
+In my case i have 6 Availability IP’s Subnets
+I’m selecting a first one for my small subnet.
+
+Then click on Create subnet. ---> Select your VPC ID
+Fill all required inputs
+then click on Create Subnet.
+You can share your subnet as per your demand.
+
+So i have set up with my subnet in VPC
+---------------------------
+Route Tables:
+After this go through the Routing table to transmission of data and service over internet.
+
+Step1: Go through the route table then click on you VPC 
+Step2: create a route table 
+Now we have successfully set up with route table
+--------------------------
+Now lets go with the Internet gatways.
+An internet gateway is a horizontally scaled, redundant, and highly available VPC component that enables communication between your VPC and the internet.
+To use an internet gateway, attach it to your VPC and specify it as a target in your subnet route table for internet-routable IPv4 or IPv6 traffic. An internet gateway performs network address translation (NAT) for instances that have been assigned public IPv4 addresses.
+Step 1: create a gatway. named it and 
+Step2: top right corner click on action and then click on attach to VPC
+Step 3: select your VPC and then attach it to the gatway.(you can do it by CLI interface as well.)
+
+Now we have successfully connected the gateway to the VPC.
+
+So now i’m not going through others these set is enough for my webapp which we will be creating so
+For more security of your VPC connection go through the 
+--------------------------
+Security
+
+we can Connect it to ACL(Access controll layer ) and Security group.
+
+Step 1: Go to security ---> Create network ACL
+--------------------------
+Configure with Security Group in VPC.
+
+Step 1: go through it and then check your VPC then click on Create Security Group.
+
+Step 2: add your security group name and the vpc that you want to secure 
+
+after this add inbound and outbound rule by all TCP 
+
+Step:3 click on Create Security Group.
+We can set Network firewall to enhance more security.
