@@ -1,0 +1,93 @@
+#theblackthreat
+
+To create Dynamic web page we need to create a database on AWS and then it must connected to the Web app which is running on the Instances.
+
+Step to produce :  1. create an Instance 
+2.Create RDS and Connect to the Webapp by configrating the Databse.
+3.create elastic beanstalk.
+
+Create instance 
+
+EC2:  EC2 stands for Elastic cloud computing used to create instance hosting services and storages publicly and privately.
+
+Steps:1 Open AWS console to create a window instance.
+
+Navigate this URL: https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:
+
+Step 2: Launch Instance ---> choose a OS windows (windows based 2019 with free tier eligible)
+
+Step 3: check the box named t2.micro for free tier ---> click next to configure 
+
+Step 4: If you want ot choose specific VPC or virtually computing onto you specified space then you can select the vpc but in my case i’m putting it as default.---> click next to add storage.
+
+Step 5: We can keeping 30 GB but if you want to more storage then change it as per requirement.
+
+Step 6: Review and Launch.---> launch
+Step 7: Now you are popped with a pair key click to create a pair key if you haven’t created it yet. and named as “window-key” ---> download key pair. ---> save it.
+
+Step 8: launch Instances ---> view Instances
+Step 9: check your instance and then click to the connect at above pannel. ---> click on RDP client --->get password ---> browse your saved key named as“windows-key.pem” ---> decrypt password.
+
+Now just save the passwrod for the future.
+
+we have completely created A windows EC2 instance.
+
+Step 10: to open it on your device. click on “download Remote desktop file” and save it
+
+Open RDP client application on windows im using my Linux OS so open 
+for windows: https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients
+for linux : Run “Remmina”
+
+double click on downloaded file windows.rdp file enter password and username form the 
+
+
+ 
+use these credential to login on RDP file and it will run on your machine.
+
+  Contrats we have done this. now move for another one
+-------------------------------------------------------------
+
+Creating RDS database service.
+
+Step 1: Got to Database----> RDS --->select Mysql service
+
+Step 2: Selet MySql service---> create a RDS named “FreelanceDB”--->then set it for following
+Edition
+Version
+Template(free tier)
+settings --> databse name
+leave all things as default and create database.
+
+----------------------------------------------------------------
+
+Creating Application on Elastic Beanstalks
+
+Step 1: First Create an Instance or just go through the Elastic Beanstalk. AWS autometic create an instance for you.
+(Sample PHP code for webapp: https://php-bootstrap.com/templates.php)
+
+Step 2: create an applcation and upload it on Elastic beanstalks. and then select for PHP 
+
+I have created a sample php page “Named freelance”
+
+
+Step 3: click on the application---->click on Enviroment name ---> left panel find Configuration----->
+
+Click on Configuration To create another security group in the environment, you should do the following:
+
+Open the Elastic Beanstalk console and find the management page of your environment. --->Select “Configuration” and choose “Modify” for “Instances”--->Select the required security group that you need to attach to the instances and apply--->After reading the warning, press “Confirm”
+
+Syep 4: To connect to the database scroll down and click on Database---Edit
+It will fetch you RDS databse and then we cna set up the credentials.  put your username and Password form RDS database which you have created before. ----> Apply.
+
+Step 5: After configuration of Database and Software modification save it and go to the application
+select your wep applicatio and then upload you sample.zip file here. and click on deply,
+
+ 
+
+
+Wait for some time and after a while your application is able to run and is automatiallay connected to the database. For test Just check its working or not. go to the contact page and fill rhe form it will connect to the server.
+
+Congrats we have created a Dynamic webapp useing EBS.
+
+
+
